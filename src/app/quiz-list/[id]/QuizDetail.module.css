@@ -1,0 +1,85 @@
+.quizContainer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .quizTitle {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .quizDescription {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #666;
+  }
+  
+  .questionContainer {
+    margin-bottom: 20px;
+  }
+  
+  .questionText {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .optionsList {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .optionItem {
+    margin-bottom: 10px;
+  }
+  
+  .optionItem label {
+    font-size: 1.2em;
+    color: #333;
+  }
+  
+  .correctAnswer {
+    background-color: #d4edda;
+  }
+  
+  .incorrectAnswer {
+    background-color: #f8d7da;
+  }
+  
+  .submitButton {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2em;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .submitButton:hover {
+    background-color: #0056b3;
+  }
+  
+  .scoreContainer {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .error {
+    color: red;
+    font-size: 1.2em;
+    text-align: center;
+  }
+  
+  .loading {
+    font-size: 1.2em;
+    text-align: center;
+  }
