@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation'
 import React, { useTransition } from 'react'
 
 export default function LanguageToggle() {
-  const [isPending, startTransition] = useTransition()
+  const [, startTransition] = useTransition()
 
   const router = useRouter();
   const localActive = useLocale()

@@ -11,7 +11,17 @@ export interface Question {
 export interface DashboardProps {
   params: {
     locale: string;
-  };
+  }
+}
+
+export interface ClientDashboardProps {
+  params: {
+    locale: string;
+  }
+  user: User;
+  userQuizData: UserQuiz[];
+  userQuizAttemptsData: UserQuizAttempt[];
+  messages: Record<string, string>;
 }
 
 export interface Quiz {

@@ -6,7 +6,7 @@ import { supabaseServerClient } from "@/db/supabaseServer";
 
 const supabase = createClient();
 // below GET function is to get a list of quizzes
-export async function GET(request: Request) {
+export async function GET() {
     try {
         
         const { data, error } = await supabase.from("quizzes").select("*")

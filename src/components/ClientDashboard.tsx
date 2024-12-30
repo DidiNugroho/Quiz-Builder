@@ -5,22 +5,23 @@ import UserAttemptQuizCard from "@/components/UserAttemptQuizCard";
 import UserQuizCard from "@/components/UserQuizCard";
 import { useState } from "react";
 import { deleteQuiz } from "@/utils/deleteQuiz";
+import { ClientDashboardProps } from "../../types";
+import { useRouter } from "next/navigation";
 
-
-interface ClientDashboardProps {
-  userQuizData: { id: string; title: string; description: string }[];
-  userQuizAttemptsData: { id: string; quizId: string; score: number }[];
-}
 
 export default function ClientDashboard({ userQuizData, userQuizAttemptsData }: ClientDashboardProps) {
+  
   const t = useTranslations("Dashboard");
   const [quizzes, setQuizzes] = useState(userQuizData);
 
+  const router = useRouter();
+
   const handleDelete = async (quizId: string) => {
     try {
-        console.log(quizId)
       await deleteQuiz(quizId);
       setQuizzes(quizzes.filter((quiz) => quiz.id !== quizId));
+
+      router.push("/en/dashboard");
     } catch (error) {
       console.error('Failed to delete quiz:', error);
     }

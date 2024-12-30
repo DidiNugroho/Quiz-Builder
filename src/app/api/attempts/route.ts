@@ -4,7 +4,7 @@ import { createClient } from "@/db/supabase";
 const supabase = createClient();
 
 // GET function to get user quiz attempts
-export async function GET(request: Request) {
+export async function GET() {
     try {
         const user = await getUserData();
 

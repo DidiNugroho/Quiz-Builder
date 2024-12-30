@@ -1,9 +1,9 @@
-import getUserData from "@/actions/getUserData";
-import getUserQuizAttemptsData from "@/actions/getUserQuizAttemptsData";
-import getUserQuizData from "@/actions/getUserQuizData";
 import { redirect } from "next/navigation";
 import { getMessages } from "next-intl/server";
 import ClientDashboard from "@/components/ClientDashboard";
+import getUserData from "@/actions/getUserData";
+import getUserQuizData from "@/actions/getUserQuizData";
+import getUserQuizAttemptsData from "@/actions/getUserQuizAttemptsData";
 import { DashboardProps } from "../../../../types";
 
 export default async function Dashboard({ params }: DashboardProps) {
