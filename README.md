@@ -11,6 +11,10 @@ Make sure you have the following installed on your machine:
 - Node.js (v14.x or later)
 - npm (v6.x or later) or yarn (v1.x or later)
 
+### Schema Visualizer
+
+<img alt="Schema Visualizer" src="https://imgur.com/dJvdLOI.png">
+
 ### Setup
 
 1. Clone the repository:
