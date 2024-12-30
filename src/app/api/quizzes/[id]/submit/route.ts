@@ -16,7 +16,6 @@ type CorrectOption = {
 export async function POST(req: Request) {
   try {
     const supabase = createClient();
-    // Create a new attempt
     const url = new URL(req.url);
     const id = url.pathname.split("/").slice(-2, -1)[0];
     const body = await req.json();
@@ -65,7 +64,7 @@ export async function POST(req: Request) {
       }
     }
 
-    // Calculate score (this is a simplified example, adjust scoring logic as needed)
+    // Calculate score
     const { data: correctOptions, error: correctOptionsError } = await supabase
       .from("options")
       .select("id, question_id, is_correct")
@@ -94,7 +93,7 @@ export async function POST(req: Request) {
       throw updateError;
     }
 
-    // Prepare correct answers map
+    // Get correct answers
     const correctAnswers = correctOptions.reduce((acc, option) => {
       if (option.is_correct) {
         acc[option.question_id] = option.id;

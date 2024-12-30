@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import UserAttemptQuizCard from "@/components/UserAttemptQuizCard";
 import UserQuizCard from "@/components/UserQuizCard";
 import { useState } from "react";
-import { deleteQuiz } from "@/utils/deleteQuiz";
+import { deleteQuiz } from "@/actions/deleteQuiz";
 import { ClientDashboardProps } from "../../types";
 import { useRouter } from "next/navigation";
 
