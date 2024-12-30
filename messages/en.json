@@ -1,0 +1,25 @@
+{
+  "QuizHome": {
+    "quizBuilder": "Quiz Builder",
+    "createQuiz": "Create Quiz",
+    "quizList": "Quiz List"
+  },
+  "Navigation": {
+    "quizBuilder": "Quiz Builder",
+    "login": "Login",
+    "signup": "Sign up",
+    "welcome": "Welcome"
+  },
+  "Dashboard": {
+    "manageYourQuiz": "Manage Your Own Quiz",
+    "noQuizCreated": "You don't have a quiz created yet",
+    "quizTaken": "Quiz Taken",
+    "noQuizAttempts": "You don't have any quiz attempts yet"
+  },
+  "RootPage": {
+    "getStarted": "Get started by Login or Register.",
+    "buildQuiz": "Build your own quiz.",
+    "login": "Login",
+    "register": "Register"
+  }
+}

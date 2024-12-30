@@ -1,0 +1,24 @@
+{
+  "QuizHome": {
+    "quizBuilder": "بناء الأسئلة",
+    "createQuiz": "إنشاء اختبار",
+    "quizList": "قائمة الاختبارات"
+  },
+  "Navigation": {
+    "quizBuilder": "بناء الأسئلة",
+    "createQuiz": "إنشاء اختبار",
+    "quizList": "قائمة الاختبارات"
+  },
+  "Dashboard": {
+    "manageYourQuiz": "إدارة الاختبار الخاص بك",
+    "noQuizCreated": "لم تقم بإنشاء اختبار بعد",
+    "quizTaken": "الاختبارات التي تم إجراؤها",
+    "noQuizAttempts": "لم تقم بأي محاولات اختبار بعد"
+  },
+  "RootPage": {
+    "getStarted": "ابدأ بتسجيل الدخول أو التسجيل.",
+    "buildQuiz": "قم بإنشاء اختبارك الخاص.",
+    "login": "تسجيل الدخول",
+    "register": "تسجيل"
+  }
+}

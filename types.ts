@@ -8,12 +8,19 @@ export interface Question {
   answers: Answer[];
 }
 
+export interface DashboardProps {
+  params: {
+    locale: string;
+  };
+}
+
 export interface Quiz {
   id: string;
   title: string;
   description: string;
   questions: Question[];
 }
+
 
 export interface UserQuiz {
   id: string;

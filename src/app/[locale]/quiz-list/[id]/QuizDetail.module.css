@@ -83,3 +83,39 @@
     font-size: 1.2em;
     text-align: center;
   }
+
+  .questionContainer {
+  margin-bottom: 20px;
+}
+
+.correctAnswer {
+  background-color: #d4edda; /* Light green background */
+  color: #155724; /* Dark green text */
+}
+
+.wrongAnswer {
+  background-color: #f8d7da; /* Light red background */
+  color: #721c24; /* Dark red text */
+}
+
+.submitButton {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.scoreContainer {
+  margin-top: 20px;
+  font-size: 1.5em;
+}
+
+.error {
+  color: red;
+}
+
+.loading {
+  color: blue;
+}

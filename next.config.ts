@@ -1,7 +1,11 @@
-import type { NextConfig } from "next";
+import nextTranslate from 'next-translate';
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
+const nextConfig = nextTranslate({
+  // Your existing Next.js config
+  i18n: {
+    locales: ['en', 'ar'],
+    defaultLocale: 'en',
+  },
+});
 
 export default nextConfig;

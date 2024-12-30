@@ -4,6 +4,7 @@ import { createClient } from "@/db/supabase";
 import { User } from "@supabase/supabase-js";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import LanguageToggle from "./LanguageToggle";
 
 export default function Navbar() {
   const [user, setUser] = useState<User | null>(null);
@@ -56,10 +57,10 @@ export default function Navbar() {
   return (
     <header className="flex shadow-md py-4 px-4 sm:px-10 bg-white font-[sans-serif] min-h-[70px] tracking-wide relative z-50 mb-4">
       <div className="flex flex-wrap items-center justify-between gap-5 w-full">
-        <a href="/quiz-home" className="max-sm:hidden">
+        <a href="/en/quiz-home" className="max-sm:hidden">
           <p className="text-2xl">Quiz Builder</p>
         </a>
-        <a href="/quiz-home" className="hidden max-sm:block">
+        <a href="/en/quiz-home" className="hidden max-sm:block">
           <p className="text-2xl">Quiz Builder</p>
         </a>
         <div
@@ -68,13 +69,13 @@ export default function Navbar() {
         >
           <ul className="lg:flex gap-x-5 max-lg:space-y-3 max-lg:fixed max-lg:bg-white max-lg:w-1/2 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:p-6 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50">
             <li className="mb-6 hidden max-lg:block">
-              <a href="/quiz-home">
+              <a href="/en/quiz-home">
                 <p className="text-2xl">Quiz Builder</p>
               </a>
             </li>
             <li className="max-lg:border-b border-gray-300 max-lg:py-3 px-3">
               <Link
-                href="/quiz-home"
+                href="/en/quiz-home"
                 className="hover:text-[#007bff] text-[#007bff] block font-semibold text-[15px]"
               >
                 Home
@@ -82,7 +83,7 @@ export default function Navbar() {
             </li>
             <li className="max-lg:border-b border-gray-300 max-lg:py-3 px-3">
               <a
-                href="/dashboard"
+                href="/en/dashboard"
                 className="hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]"
               >
                 Dashboard
@@ -91,14 +92,15 @@ export default function Navbar() {
           </ul>
         </div>
         <div className="flex max-lg:ml-auto space-x-4">
+          <LanguageToggle />
           {!user ? (
             <>
-              <Link href={"/login"}>
+              <Link href={"/en/login"}>
                 <button className="px-4 py-2 text-sm rounded-full font-bold text-gray-500 border-2 bg-transparent hover:bg-gray-50 transition-all ease-in-out duration-300">
                   Login
                 </button>
               </Link>
-              <Link href={"/register"}>
+              <Link href={"/en/register"}>
                 <button className="px-4 py-2 text-sm rounded-full font-bold text-white border-2 border-[#007bff] bg-[#007bff] transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#007bff]">
                   Sign up
                 </button>
@@ -111,7 +113,7 @@ export default function Navbar() {
               </span>
               <button
                 onClick={handleSignout}
-                className="px-4 py-2 text-sm rounded-full font-bold text-gray-500 border-2 bg-transparent hover:bg-gray-50 transition-all ease-in-out duration-300"
+                className="px-4 py-2 text-sm rounded-full font-bold bg-red-500 text-white-500 border-2 bg-transparent hover:bg-gray-50 transition-all ease-in-out duration-300"
               >
                 Logout
               </button>

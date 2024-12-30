@@ -2,7 +2,7 @@
 
 import QuizCard from "@/components/QuizCard";
 import { useEffect, useState } from "react";
-import { Quiz } from "../../../types";
+import { Quiz } from "../../../../types";
 
 export default function QuizList() {
   const [quizzes, setQuizzes] = useState<Quiz[]>([]);

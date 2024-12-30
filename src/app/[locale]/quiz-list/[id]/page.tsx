@@ -109,7 +109,7 @@ export default function QuizDetail() {
         </div>
       ))}
       {score === null ? (
-        <button type="submit" className={styles.submitButton}>Submit Quiz</button>
+        <button type="submit" className={styles.submitButton}>Finish Quiz</button>
       ) : (
         <div className={styles.scoreContainer}>
           <h2>Your Score: {score}</h2>

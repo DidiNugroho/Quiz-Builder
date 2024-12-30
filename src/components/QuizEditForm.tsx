@@ -1,6 +1,7 @@
 "use client";
 
 import getUserData from "@/actions/getUserData";
+import getUserQuizDetail from "@/actions/getUserQuizDetail";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
@@ -17,9 +18,9 @@ interface Quiz {
   }[];
 }
 
-function QuizEditForm() {
+function QuizEditForm({quiz}: {quiz: Quiz}) {
   const router = useRouter();
-  const [quiz, setQuiz] = useState<Quiz>({
+  const [currentQuiz, setQuiz] = useState<Quiz>({
     title: "",
     description: "",
     questions: [
@@ -30,36 +31,37 @@ function QuizEditForm() {
     ],
   });
 
-//   useEffect(() => {
-//     if (quizData.length > 0) {
-//       const fetchQuizData = async () => {
-//         const userData = await getUserData();
-//         if (!userData) {
-//           return <div>Error: User data not found</div>;
-//         }
+  // useEffect(() => {
+  //   if (quiz) {
+  //     const fetchQuizData = async () => {
+  //       const userData = await getUserData();
 
-//         const userId = userData.id;
+  //       if (!userData) {
+  //         return <div>Error: User data not found</div>;
+  //       }
 
-//         try {
-//           const response = await fetch(`/api/quizzes/${quizData[0].id}`);
-//           if (!response.ok) {
-//             throw new Error("Failed to fetch quiz data");
-//           }
-//           const data = await response.json();
-//           setQuiz(data);
-//         } catch (error) {
-//           Swal.fire({
-//             title: "Error",
-//             text:
-//               error instanceof Error ? error.message : "Unknown error occurred",
-//             icon: "error",
-//           });
-//         }
-//       };
+  //       const userId = userData.id;
 
-//       fetchQuizData();
-//     }
-//   }, [quizData]);
+  //       try {
+  //         const data = await getUserQuizDetail(userId);
+  //         if (data.length > 0) {
+  //           setQuiz(data[0]);
+  //         } else {
+  //           throw new Error("No quiz found for the user");
+  //         }
+  //       } catch (error) {
+  //         Swal.fire({
+  //           title: "Error",
+  //           text:
+  //             error instanceof Error ? error.message : "Unknown error occurred",
+  //           icon: "error",
+  //         });
+  //       }
+  //     };
+
+  //     fetchQuizData();
+  //   }
+  // }, [quiz]);
 
   const handleQuizChange = (
     e: React.ChangeEvent<
@@ -131,7 +133,7 @@ function QuizEditForm() {
     e.preventDefault();
 
     try {
-      const response = await fetch(`/api/quizzes/${quizId}`, {
+      const response = await fetch(`/api/quizzes/${quiz.title}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

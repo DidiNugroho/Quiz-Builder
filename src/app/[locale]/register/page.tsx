@@ -40,7 +40,7 @@ export default function Register() {
         icon: "success",
       });
 
-      router.push("/login");
+      router.push("/en/login");
     } catch (error) {
       Swal.fire({
         title: "Error!",

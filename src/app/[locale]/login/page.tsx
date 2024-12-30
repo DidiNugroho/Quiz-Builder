@@ -41,7 +41,7 @@ export default function LoginPage() {
         icon: "success",
       });
 
-      router.push("/quiz-home");
+      router.push("/en/quiz-home");
     } catch (error) {
       Swal.fire({
         title: "Error",

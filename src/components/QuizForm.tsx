@@ -106,7 +106,7 @@ function QuizForm() {
         icon: "success",
       });
 
-      router.push("/quiz-home");
+      router.push("/en/quiz-home");
     } catch (error) {
       Swal.fire({
         title: "Error",
@@ -117,7 +117,7 @@ function QuizForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-6 m-24">
       <div className="space-y-2 flex flex-col">
         <label>Title:</label>
         <input
@@ -189,7 +189,7 @@ function QuizForm() {
         </div>
       ))}
 
-      <button type="button" onClick={addQuestion} className="text-green-500">
+      <button type="button" onClick={addQuestion} className="text-white bg-green-500 p-2 mr-4">
         Add Question
       </button>
 

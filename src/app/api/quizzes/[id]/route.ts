@@ -109,3 +109,31 @@ export async function PUT(request: NextRequest) {
     );
   }
 }
+
+export async function DELETE(request: Request) {
+  try {
+    // Extract the quiz ID from the URL
+    const url = new URL(request.url);
+    const id = url.pathname.split('/').pop();
+
+    if (!id) {
+      throw new Error("Quiz ID is required");
+    }
+
+    // Delete the quiz from the database
+    const { error } = await supabase.from("quizzes").delete().eq("id", id);
+
+    if (error) {
+      throw new Error(error.message);
+    }
+
+    // Return a success response
+    return new Response(JSON.stringify({ message: "Quiz deleted successfully" }), { status: 200 });
+  } catch (error) {
+    // Return an error response
+    return new Response(
+      JSON.stringify({ error: (error as Error).message || "Unknown error occurred" }),
+      { status: 400 }
+    );
+  }
+}

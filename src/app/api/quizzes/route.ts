@@ -1,6 +1,8 @@
 // import { verifyToken } from "@/utils/jwt";
 // import { cookies } from "next/headers";
+import getUserData from "@/actions/getUserData";
 import { createClient } from "@/db/supabase";
+import { supabaseServerClient } from "@/db/supabaseServer";
 
 const supabase = createClient();
 // below GET function is to get a list of quizzes
@@ -56,18 +58,11 @@ export async function GET_USER_QUIZZES(request: Request) {
 // it will also POST to questions table and answers table related to the quiz
 export async function POST(request: Request) {
     try {
-        // console.log("API endpoint called");
+      const supabase = await supabaseServerClient()
 
-        // const cookieStore = await cookies()
-        // const token = cookieStore.get("Authorization")?.value.split(" ")[1];
-        // if (!token) throw { message: "Unauthorized", status: 401 };
+        const user = await getUserData();
 
-        // const payload = verifyToken(token);
-        // if (typeof payload === "string" || !payload.id) {
-        //     throw { message: "Invalid token payload", status: 401 };
-        // }
-        // console.log("Payload:", payload);
-        const userId = "b2e909a1-bd9a-441a-b5f3-d4f89872a1b5";
+        const userId = user?.id
         
         const { title, description, questions} = await request.json();
 
@@ -129,18 +124,4 @@ export async function POST(request: Request) {
         { status: 400 }
         );
     }
-}
-
-export async function DELETE(response: Response) {
-  try {
-
-    
-
-    return Response.json({ message: "ok" });
-  } catch (error) {
-    return Response.json(
-      { error: (error as Error).message || "Unknown error occurred" },
-      { status: 400 }
-      );
-  }
 }

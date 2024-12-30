@@ -10,7 +10,7 @@ export default function QuizCard({ quizzes }: { quizzes: Quiz }) {
           <p className="mt-2 text-sm text-gray-500 leading-relaxed">
             {quizzes.description}
           </p>
-          <Link href={`/quiz-list/${quizzes.id}`}>
+          <Link href={`/en/quiz-list/${quizzes.id}`}>
             <button
               type="button"
               className="mt-4 px-5 py-2.5 rounded-lg text-white text-sm tracking-wider border-none outline-none bg-blue-600 hover:bg-blue-700"

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { UserQuiz } from "../../types";
 
-export default function UserQuizCard({ quizzes }: { quizzes: UserQuiz[] }) {
+export default function UserQuizCard({ quizzes, handleDelete }: { quizzes: UserQuiz[], handleDelete: (id: string) => void }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-4 p-4">
       {quizzes.map((quiz) => (
@@ -15,14 +15,14 @@ export default function UserQuizCard({ quizzes }: { quizzes: UserQuiz[] }) {
               {quiz.description}
             </p>
             <div className="mt-4">
-              <Link href={"/quiz-edit"}>
+              <Link href={`/en/quiz-edit/${quiz.id}`}>
                 <button className="mr-12 mt-4 px-5 py-2.5 rounded-lg text-white text-sm tracking-wider border-none outline-none bg-blue-600 hover:bg-blue-700">
                   Edit
                 </button>
               </Link>
-              <button className="mt-4 px-5 py-2.5 rounded-lg text-white text-sm tracking-wider border-none outline-none bg-red-600 hover:bg-red-700">
-                Delete
-              </button>
+                <button onClick={() => {handleDelete(quiz.id)}} className="mt-4 px-5 py-2.5 rounded-lg text-white text-sm tracking-wider border-none outline-none bg-red-600 hover:bg-red-700">
+                  Delete
+                </button>
             </div>
           </div>
         </div>
