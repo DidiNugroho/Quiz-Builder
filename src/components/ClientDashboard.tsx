@@ -5,11 +5,11 @@ import UserAttemptQuizCard from "@/components/UserAttemptQuizCard";
 import UserQuizCard from "@/components/UserQuizCard";
 import { useState } from "react";
 import { deleteQuiz } from "@/actions/deleteQuiz";
-import { ClientDashboardProps } from "../../types";
+import { UserQuiz, UserQuizAttempt } from "../../types";
 import { useRouter } from "next/navigation";
 
 
-export default function ClientDashboard({ userQuizData, userQuizAttemptsData }: ClientDashboardProps) {
+export default function ClientDashboard({ userQuizData, userQuizAttemptsData }: { userQuizData: UserQuiz[], userQuizAttemptsData: UserQuizAttempt[]}) {
   
   const t = useTranslations("Dashboard");
   const [quizzes, setQuizzes] = useState(userQuizData);
@@ -38,7 +38,7 @@ export default function ClientDashboard({ userQuizData, userQuizAttemptsData }: 
       {userQuizAttemptsData.length > 0 ? (
         <>
           <h1 className="font-bold text-2xl">{t("quizTaken")}</h1>
-          <UserAttemptQuizCard quizzes={userQuizAttemptsData} />
+          <UserAttemptQuizCard quizzes={userQuizData} />
         </>
       ) : (
         <p className="text-gray-500">{t("noQuizAttempts")}</p>

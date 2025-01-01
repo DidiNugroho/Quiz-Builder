@@ -25,37 +25,6 @@ export async function GET() {
     }
 }
 
-export async function GET_USER_QUIZZES(request: Request) {
-  try {
-      const url = new URL(request.url);
-      const userId = url.searchParams.get("user_id");
-
-      if (!userId) {
-          throw new Error("User ID is required");
-      }
-
-      const { data, error } = await supabase
-          .from("quizzes")
-          .select("*")
-          .eq("user_id", userId);
-
-      if (error) {
-          throw new Error(error.message);
-      }
-      if (!data) {
-          throw new Error("Failed to fetch user-created quizzes");
-      }
-      return new Response(JSON.stringify(data), { status: 200 });
-  } catch (error) {
-      return new Response(
-          JSON.stringify({ error: (error as Error).message || "Unknown error occurred" }),
-          { status: 400 }
-      );
-  }
-}
-
-// below POST function is to create a new quiz
-// it will also POST to questions table and answers table related to the quiz
 export async function POST(request: Request) {
     try {
       const supabase = await supabaseServerClient()
@@ -102,7 +71,7 @@ export async function POST(request: Request) {
               throw new Error("Failed to insert question");
             }
           
-            for (const answer of question.answers) { // Use the correct answers array within each question
+            for (const answer of question.answers) { 
               const { error: answerError } = await supabase.from("options").insert([
                 {
                   question_id: questionId,

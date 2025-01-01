@@ -9,15 +9,16 @@ export interface Question {
 }
 
 export interface DashboardProps {
-  params: {
     locale: string;
-  }
+}
+
+export interface LocaleProps {
+    params: {
+      locale: string;
+    }
 }
 
 export interface ClientDashboardProps {
-  params: {
-    locale: string;
-  }
   user: User;
   userQuizData: UserQuiz[];
   userQuizAttemptsData: UserQuizAttempt[];
@@ -36,6 +37,7 @@ export interface UserQuiz {
   id: string;
   title: string;
   description: string;
+  score: number;
 }
 
 export interface User {
@@ -48,9 +50,4 @@ export interface UserQuizAttempt {
   id: string;
   quiz_id: string;
   score: number;
-  quizzes: {
-    id: string;
-    title: string;
-    description: string;
-  };
 }

@@ -8,12 +8,7 @@ export default async function getUserQuizAttemptsData(userId: string) {
     .select(`
       id,
       quiz_id,
-      score,
-      quizzes (
-        id,
-        title,
-        description
-      )
+      score
     `)
     .eq("user_id", userId);
 
